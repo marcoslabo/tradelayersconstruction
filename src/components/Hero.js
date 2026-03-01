@@ -28,7 +28,7 @@ export default function Hero() {
                     }}>
                         Get Your Free Quote →
                     </a>
-                    <a href="tel:+15125551234" className="btn btn-secondary">
+                    <a href="tel:+17373360983" className="btn btn-secondary">
                         📞 Call Now
                     </a>
                 </div>

@@ -34,7 +34,7 @@ export default function Footer() {
                 <div className="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:+15125551234">(512) 555-1234</a></li>
+                        <li><a href="tel:+17373360983">(737) 336-0983</a></li>
                         <li><a href="mailto:info@tradelayerconstruction.com">info@tradelayer.com</a></li>
                         <li><a href="#quote">Get a Free Quote</a></li>
                     </ul>

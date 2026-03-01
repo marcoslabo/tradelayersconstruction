@@ -32,8 +32,8 @@ export default function Navbar() {
                 </ul>
 
                 <div className="navbar-cta">
-                    <a href="tel:+15125551234" className="navbar-phone">
-                        (512) 555-1234
+                    <a href="tel:+17373360983" className="navbar-phone">
+                        (737) 336-0983
                     </a>
                     <button
                         className="btn btn-primary btn-sm"

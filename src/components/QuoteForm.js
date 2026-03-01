@@ -88,7 +88,7 @@ export default function QuoteForm() {
                                 <h3>Quote Request Sent!</h3>
                                 <p>
                                     We&apos;ll call you within 24 hours. In the meantime, feel free to
-                                    call us directly at <strong>(512) 555-1234</strong>.
+                                    call us directly at <strong>(737) 336-0983</strong>.
                                 </p>
                             </div>
                         ) : (
@@ -111,7 +111,7 @@ export default function QuoteForm() {
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        placeholder="(512) 555-1234"
+                                        placeholder="(737) 336-0983"
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
