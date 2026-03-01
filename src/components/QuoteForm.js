@@ -12,6 +12,7 @@ export default function QuoteForm() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,29 +21,23 @@ export default function QuoteForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
-        // Supabase integration placeholder — will work once env vars are set
         try {
-            const { createClient } = await import('@supabase/supabase-js');
-            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-            const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+            const res = await fetch('/api/quote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
 
-            if (supabaseUrl && supabaseKey) {
-                const supabase = createClient(supabaseUrl, supabaseKey);
-                await supabase.from('quote_requests').insert([{
-                    name: formData.name,
-                    phone: formData.phone,
-                    email: formData.email,
-                    project_type: formData.projectType,
-                    description: formData.description,
-                }]);
-            }
+            if (!res.ok) throw new Error('Failed to send');
+
+            setSubmitted(true);
         } catch (err) {
-            console.log('Supabase not configured yet — form submitted locally.');
+            setError('Something went wrong. Please call us directly!');
+        } finally {
+            setLoading(false);
         }
-
-        setLoading(false);
-        setSubmitted(true);
     };
 
     return (
@@ -168,6 +163,11 @@ export default function QuoteForm() {
                                 >
                                     {loading ? 'Sending...' : 'Get My Free Quote →'}
                                 </button>
+                                {error && (
+                                    <p style={{ color: 'var(--error)', textAlign: 'center', marginTop: '12px', fontSize: '0.95rem' }}>
+                                        {error}
+                                    </p>
+                                )}
                             </>
                         )}
                     </form>
